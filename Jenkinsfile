@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building Docker image...'
-                sh 'docker build -t peninaapp:latest .'
+                sh 'docker build -t karpliakapp:latest .'
             }
         }
 
@@ -27,8 +27,8 @@ pipeline {
                 )]) {
                     sh '''
                         echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-                        docker tag peninaapp:latest $DOCKER_USER/peninaapp:latest
-                        docker push $DOCKER_USER/peninaapp:latest
+                        docker tag karpliakapp:latest $DOCKER_USER/karpliakapp:latest
+                        docker push $DOCKER_USER/karpliakapp:latest
                     '''
                 }
             }
